@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  background-color: rgba(197, 194, 194, 0.465);
+}
+li {
+  font-size: 40px;
+}
+
+p {
+  color: blue;
+  font-size: 70px;
+}
+img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  transition: 900ms;
+  margin: 50px;
+  border-radius: 60px;
+}
+img:hover {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
