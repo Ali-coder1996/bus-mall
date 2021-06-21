@@ -48,38 +48,33 @@ for (let i = 0; i < imges.length; i++) {
   new Vote(imges[i].split('.')[0], imges[i]);
 //   console.log(imges[i].split('.')[0],Vote.all[i].name);
 }
+
 let leftIndex;
 let midIndex;
 let rightIndex;
+let allDierection = [];
 function render() {
-  leftIndex = randomNumber(0, imges.length - 1);
+
   do {
+    leftIndex = randomNumber(0, imges.length - 1);
     midIndex = randomNumber(0, imges.length - 1);
     rightIndex = randomNumber(0, imges.length - 1);
-  } while (leftIndex === midIndex || leftIndex === rightIndex || rightIndex === midIndex);
-
+  } while (leftIndex === midIndex || leftIndex === rightIndex || rightIndex === midIndex || allDierection.includes(leftIndex) || allDierection.includes(midIndex) || allDierection.includes(rightIndex));
+  console.log(allDierection.includes(rightIndex));
+  // console.log(allDierection);
   Vote.all[leftIndex].views++;
   Vote.all[midIndex].views++;
   Vote.all[rightIndex].views++;
-  // console.log(Vote.all);
+
 
   left.src = Vote.all[leftIndex].path;
   mid.src = Vote.all[midIndex].path;
   right.src = Vote.all[rightIndex].path;
-
-  // left.setAttribute('src', leftIndex.src);
-  // left.setAttribute('alt', leftIndex.name);
-  // left.setAttribute('title', leftIndex.name);
-
-  // mid.setAttribute('src', midIndex.src);
-  // mid.setAttribute('alt', midIndex.name);
-  // mid.setAttribute('title', midIndex.name);
-
-  // right.setAttribute('src', rightIndex.src);
-  // right.setAttribute('alt', rightIndex.name);
-  // right.setAttribute('title', rightIndex.name);
-  // counter++;
+  allDierection = [];
+  allDierection.push(leftIndex,midIndex,rightIndex);
 }
+
+
 let button = document.getElementById('button');
 function display() {
   let container = document.getElementById('result');
