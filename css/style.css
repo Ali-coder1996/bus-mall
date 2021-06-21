@@ -27,6 +27,7 @@ button {
   width: 150px;
   height: 50px;
   animation-name: color;
+  /* transition: .8s; */
   animation-duration: 9s;
   background-color: gray;
   color: #fff;

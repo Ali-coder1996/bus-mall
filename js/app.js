@@ -105,6 +105,7 @@ function stopEvent(event) {
     render();
     counter++;
   } else if (counter === 25) {
+    chart();
     document.getElementById('button').disabled=false;
     imagesSection.removeEventListener('click',stopEvent);
   }
@@ -115,3 +116,40 @@ button.addEventListener('click',display);
 
 imagesSection.addEventListener('click', stopEvent);
 render();
+
+function chart(){
+  let nameArr = [];
+  let voteArr = [];
+  let viewArr = [];
+  for(let i=0; i< Vote.all.length; i++){
+    nameArr.push(Vote.all[i].name);
+    voteArr.push(Vote.all[i].votes);
+    viewArr.push(Vote.all[i].views);
+  }
+  let ctx = document.getElementById('myChart').getContext('2d');
+  let myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: nameArr,
+      datasets: [
+        {
+          label: '# of Votes',
+          data: voteArr,
+          backgroundColor: '#EE0000',
+        },
+        {
+          label: '# of Votes',
+          data: viewArr,
+          backgroundColor:  '#000000',
+        },
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
