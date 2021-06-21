@@ -133,7 +133,7 @@ function chart(){
           backgroundColor: '#EE0000',
         },
         {
-          label: '# of Votes',
+          label: '# of view',
           data: viewArr,
           backgroundColor:  '#000000',
         },
