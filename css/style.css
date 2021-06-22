@@ -19,23 +19,24 @@ img {
   border-radius: 60px;
 }
 img:hover {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 button {
   width: 150px;
   height: 50px;
   animation-name: color;
-  /* transition: .8s; */
+  transition: .8s;
   animation-duration: 9s;
   background-color: gray;
   color: #fff;
   font-size: 20px;
+  margin-right: 50px;
 }
-/* button:hover {
+button:hover {
   width: 200px;
-} */
+}
 @keyframes color {
   0% {
     background-color: rgb(230, 230, 41);
@@ -52,4 +53,20 @@ button {
   100% {
     background-color: rgb(216, 216, 216);
   }
+}
+.chart {
+  display: flex;
+  width: 700px;
+  height: 300px;
+}
+#result {
+  width: 100%;
+  height: 300px;
+}
+#result ul {
+  width: 700px;
+}
+#result ul li {
+  font-size: 29px;
+  line-height: 1.2;
 }
