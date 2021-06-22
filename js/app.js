@@ -121,8 +121,17 @@ function updateList() {
 
 
 function getList() {
-  Vote.all = JSON.parse(localStorage.getItem('productVotes'));
-  // render();
+  let data = JSON.parse(localStorage.getItem('productVotes'));
+  if (data){
+    Vote.all = data;
+    // render;
+  }else {
+    for (let i =0;i<Vote.all; i++){
+      new Vote(imges[i].split('.')[0], imges[i]);
+    }
+  }
+  // Vote.all = JSON.parse(localStorage.getItem('productVotes'));
+  render();
 
 }
 getList();
