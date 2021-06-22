@@ -60,7 +60,7 @@ function render() {
     midIndex = randomNumber(0, imges.length - 1);
     rightIndex = randomNumber(0, imges.length - 1);
   } while (leftIndex === midIndex || leftIndex === rightIndex || rightIndex === midIndex || allDierection.includes(leftIndex) || allDierection.includes(midIndex) || allDierection.includes(rightIndex));
-  console.log(allDierection.includes(rightIndex));
+  // console.log(allDierection.includes(rightIndex));
   // console.log(allDierection);
   Vote.all[leftIndex].views++;
   Vote.all[midIndex].views++;
@@ -98,6 +98,7 @@ function stopEvent(event) {
       Vote.all[rightIndex].votes++;
     }
     render();
+    updateList();
     counter++;
   } else if (counter === 25) {
     chart();
@@ -111,6 +112,22 @@ button.addEventListener('click',display);
 
 imagesSection.addEventListener('click', stopEvent);
 render();
+
+function updateList() {
+  let upList = JSON.stringify(Vote.all);
+  localStorage.setItem('productVotes', upList);
+  // console.log(upList);
+}
+
+
+function getList() {
+  Vote.all = JSON.parse(localStorage.getItem('productVotes'));
+  // render();
+
+}
+getList();
+
+
 
 function chart(){
   let nameArr = [];
